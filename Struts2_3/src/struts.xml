@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+                 <constant name="struts.configuration.xml.reload" value="true"></constant>
+                <constant name="struts.devMode" value="true"></constant>
+                  <constant name="struts.ui.theme" value="simple"></constant>
+                  <constant name="struts.ui.templateDir" value="template"></constant>
+                  <constant name="struts.ui.templateSuffix" value="ftl"></constant>
+
+   <package name="userlogin" extends="struts-default">
+       <action name="loginAction" class="com.hand.action.LoginAction">
+            <result name="success">/index.jsp</result>
+       </action>
+       
+       <action name="muserlogin" class="com.hand.action.MLoginAction">
+            <result name="success">/index.jsp</result>
+            <!-- 拦截器(通常是必须的两个拦截器) -->
+            <interceptor-ref name="modelDriven"></interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+       </action>
+       
+       <action name="suserlogin" class="com.hand.action.SloginAction">
+            <result name="success">/index.jsp</result>
+       </action>
+       
+   </package>
+</struts>

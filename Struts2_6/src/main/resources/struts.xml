@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+                 <constant name="struts.configuration.xml.reload" value="true"></constant> 
+                 <constant name="struts.enable.DynamicMethodInvocation" value="true" />    
+                    
+   <package name="usersPackage" extends="struts-default">
+        <interceptors>
+               <interceptor name="FirstInter" class="com.hand.interceptor.FirstInterceptor">
+                   <param name="someThing">admin</param>
+               </interceptor>
+               <interceptor name="SecondInter" class="com.hand.interceptor.SecondInterceptor" />
+                <interceptor name="MethodInter" class="com.hand.interceptor.MethodInterceptor" >
+                    <param name="excludeMethods">show</param>
+                </interceptor>
+               <interceptor-stack name="AllInterceptor">
+                    <interceptor-ref name="FirstInter"></interceptor-ref>
+		            <interceptor-ref name="SecondInter"></interceptor-ref>
+		            <interceptor-ref name="defaultStack"></interceptor-ref>
+               </interceptor-stack>
+        </interceptors>
+        
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+        <action name="*_*" class="com.hand.action.{1}Action" method="{2}">
+            <interceptor-ref name="MethodInter"></interceptor-ref>
+             <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="{1}success">/{1}index.jsp</result>
+       </action>
+      
+   </package>
+   
+    <package name="SecondPackage" extends="struts-default">
+          
+          <interceptors>
+             <interceptor name="checkLogin" class="com.hand.interceptor.CheckLoginInterceptor"></interceptor>
+             <interceptor-stack name="defaultInterceptorss">
+                  <interceptor-ref name="checkLogin"></interceptor-ref>
+                  <interceptor-ref name="defaultStack"></interceptor-ref>
+             </interceptor-stack>
+          </interceptors>
+          
+          <default-interceptor-ref name="defaultInterceptorss"></default-interceptor-ref>
+    
+         <global-results>
+              <result name="loginfail">/login.jsp</result>
+         </global-results>
+          <action name="loginAction" class="com.hand.action.LoginAction">
+              <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/login.jsp</result>
+       </action>
+        <action name="salaryAction" class="com.hand.action.SalaryAction" method="*">
+            <result name="success">/success.jsp</result>
+       </action>
+    </package>
+</struts>
+	
