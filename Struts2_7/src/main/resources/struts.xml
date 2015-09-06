@@ -12,6 +12,14 @@
 		<action name="changeLanguage" class="com.hand.action.ChangeLanguageAction">
 			<result name="success">/index.jsp</result>
 		</action>
+		
+		<action name="loginAction" class="com.hand.action.LoginAction">
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/index.jsp</result>
+			<result name="invalid.token">/error.jsp</result>
+		</action>
+		
 	</package>
 
 </struts>
