@@ -7,7 +7,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>    
 <html>
 <body>
-<h2>Hello World!</h2>
 
    <!-- s标签: 表单 -->
    <s:form action="slogin" method="post">

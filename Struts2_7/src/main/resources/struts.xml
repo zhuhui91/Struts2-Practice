@@ -5,14 +5,14 @@
 
 <struts>
 
-                 <constant name="struts.configuration.xml.reload" value="true"></constant> 
-                 <constant name="struts.custom.i18n.resouces" value="message"></constant>
-                   
-             <package name="test" extends="struts-default">
-                 <action name="changeLanguage" class="com.hand.action.ChangeLanguageAction">
-                    <result name="success">/index.jsp</result>
-                 </action>
-             </package>
-    
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.custom.i18n.resources" value="message"></constant>
+
+	<package name="test" extends="struts-default">
+		<action name="changeLanguage" class="com.hand.action.ChangeLanguageAction">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+
 </struts>
 	

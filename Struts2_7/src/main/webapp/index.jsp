@@ -6,10 +6,11 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %> 
 <html>
+<head>
+<title>1231sss23</title>
+</head>
 <body>
-<h2>Hello World!</h2>
-</body>
-   <s:text name="login.title" />
+ <s:text name="login.title" />
    
    <s:form acton="changeLanguage" method="post">
         <s:textfield name="username" key="login.username"></s:textfield>
@@ -18,4 +19,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </s:form>
    <a href="changeLanguage.action?request_locale=zh_CN">中文</a>
    <a href="changeLanguage.action?request_locale=en_US">English</a>
+</body>
 </html>

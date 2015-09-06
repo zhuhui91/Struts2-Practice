@@ -6,7 +6,7 @@
 <struts>
 
                  <constant name="struts.configuration.xml.reload" value="true"></constant>
-                <constant name="struts.devMode" value="true"></constant>
+                <constant name="struts.devMode" value="false"></constant>
 
    <package name="test" extends="struts-default">
         <action name="slogin" class="com.hand.action.LoginAction">

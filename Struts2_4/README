@@ -1,0 +1,4 @@
+mvn clean 
+1,mvn compile
+2,mvn tomcat:run ;启动tomcat
+在浏览器输入:http://localhost:8080/Struts2_4/index.jsp
